@@ -29,15 +29,6 @@ public class Jgraph implements Graph {
 	}
 
 	
-	public void delete(Node node){
-		boolean flag = graph.removeVertex(node.id);
-		if(flag){
-			Iterator<Entry<String, String>> it = node.to.entrySet().iterator();
-			while(it.hasNext()){			
-				graph.removeEdge(node.id, it.next().getKey() );
-			}
-		}
-	}
 	
 	public double getShortestPathWeight(String from , String to){
 		DijkstraShortestPath<String, DefaultWeightedEdge> shortpath = new DijkstraShortestPath<String, DefaultWeightedEdge>(this.graph, from, to);
@@ -103,11 +94,19 @@ public class Jgraph implements Graph {
 
 	@Override
 	public long deleteNode(Node node) {
-		// TODO Auto-generated method stub
-		return 0;
+		if(graph.removeVertex(node.id)){
+			return 1;
+		}else{
+			return 0;		
+		}
+		
 	}
 
 
-
-
+	@Override
+	public void deleteNodes(List<Node> nodes) {
+		for(Node node : nodes){
+			deleteNode(node);
+		}		
+	}
 }

@@ -121,11 +121,7 @@ public class NeoGraph implements Graph{
 		
 	}
 
-	@Override
-	public void delete(src.graphs.node.Node node) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 	@Override
 	public double getShortestPathWeight(String from, String to) {
@@ -234,7 +230,15 @@ public class NeoGraph implements Graph{
 
 	@Override
 	public long deleteNode(src.graphs.node.Node node) {
-		// TODO Auto-generated method stub
-		return 0;
+		Node tempNode = graphDb.getNodeById(Long.parseLong(NeoGraphRest.nodeIAndNeoId.get(node.id)));
+		tempNode.delete();
+		return 1;
+	}
+
+	@Override
+	public void deleteNodes(List<src.graphs.node.Node> nodes) {
+		for(src.graphs.node.Node node : nodes ){
+			deleteNode(node);
+		}		
 	}
 }

@@ -36,18 +36,6 @@ public class MyGraph implements Graph{
 		
 	}
 
-	public void delete(Node node) {
-		try {
-			this.graph.remove(node);
-			
-		} catch (Exception e) {
-			System.out
-					.println("Exception while deleteing in the Graph. Reason ::"
-							+ e);
-		}
-	
-	}
-
 	public List<Node> getGraph() {
 		return this.graph;
 	}
@@ -280,7 +268,23 @@ public class MyGraph implements Graph{
 
 	@Override
 	public long deleteNode(Node node) {
-		// TODO Auto-generated method stub
-		return 0;
+		try {
+			this.graph.remove(node);
+			
+		} catch (Exception e) {
+			System.out
+					.println("Exception while deleteing in the Graph. Reason ::"
+							+ e);
+			return 0;
+		}
+		return 1;
+	}
+
+	@Override
+	public void deleteNodes(List<Node> nodes) {
+		for(Node node : nodes){
+			deleteNode(node);
+		}
+		
 	} 
 }

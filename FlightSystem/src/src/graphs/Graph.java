@@ -2,7 +2,6 @@ package src.graphs;
 
 import java.util.List;
 
-import org.jgrapht.graph.DefaultWeightedEdge;
 
 import src.graphs.node.Node;
 
@@ -12,7 +11,7 @@ public interface Graph {
 	void createNodes(List<Node> nodes);
 	void createEdges(List<Node> nodes);
 	void createEdge(Node node);
-	void delete(Node node);
+	void deleteNodes(List<Node> node);
 	double getShortestPathWeight(String from , String to);
 
 	// List getShortestPathVetices(List<DefaultWeightedEdge> edgeList);
