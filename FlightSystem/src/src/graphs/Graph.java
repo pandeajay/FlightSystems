@@ -12,9 +12,7 @@ public interface Graph {
 	void createEdges(List<Node> nodes);
 	void createEdge(Node node);
 	void deleteNodes(List<Node> node);
-	double getShortestPathWeight(String from , String to);
-
-	// List getShortestPathVetices(List<DefaultWeightedEdge> edgeList);
+	double getShortestPathWeight(String from , String to);	
 	List getShortestPathVetices(String from , String to);
 	void close();
 

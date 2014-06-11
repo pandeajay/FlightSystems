@@ -25,6 +25,7 @@ public class Node {
 				while(it2.hasNext()){
 					Entry<String, String> next = it2.next();
 					this.to.put(next.getKey(), next.getValue());
+					
 				}
 			}
 		}
